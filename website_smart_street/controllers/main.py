@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-    
-import json
-from smartystreets import Client
+try:
+    from smartystreets import Client
+except ImportError:
+    raise ImportError('pip install smartystreets.py')
+
 
 from odoo import http, tools, _
 from odoo.http import request
@@ -16,11 +18,12 @@ class WebsiteSaleAddress(WebsiteSale):
                                    data=data)
         error = res[0]
         error_message = res[1]
-        api = request.env['website.config.settings'].search([],
-                                                            order="id desc",
-                                                            limit=1)
-        if api.auth_id and api.auth_token:
-            client = Client(api.auth_id, api.auth_token)
+        auth_id = request.env['ir.config_parameter'].\
+            sudo().get_param('auth_id')
+        auth_token = request.env['ir.config_parameter'].\
+            sudo().get_param('auth_token')
+        if auth_id and auth_token:
+            client = Client(auth_id, auth_token)
             state_id = data.get('state_id')
             if state_id:
                 state = request.env['res.country.state'].sudo().browse(
@@ -40,11 +43,3 @@ class WebsiteSaleAddress(WebsiteSale):
             error["name"] = 'error'
             error_message.append(_('Please Configure API!'))
         return (error, error_message)
-
-    @http.route('/phone/check', type='http', auth='public', methods=['GET', 'POST'])
-    def PhoneChange2(self, **kw):
-        print 'KKKKKKKKKKKKKKKKKKKKKKKKKKK', kw
-        result = []
-        if kw:
-            result.append({'res': kw})
-        return json.dumps(result)
