@@ -8,11 +8,8 @@
             Website Smart Streets
     """,
     'category': 'Website',
-    'author': 'J.Silverstar',
-    'support': 'jsilverstar19@gmail.com',
     'depends': ['website', 'website_sale'],
     'data': [
-        'views/assets.xml',
         'views/res_config_views.xml',
     ],
     'demo': [],

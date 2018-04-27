@@ -4,7 +4,6 @@ import odoo
 from odoo import fields
 from odoo.addons.payment.tests.common import PaymentAcquirerCommon
 from odoo.addons.payment.models.payment_acquirer import ValidationError
-from odoo.tools import mute_logger
 
 
 @odoo.tests.common.at_install(False)
