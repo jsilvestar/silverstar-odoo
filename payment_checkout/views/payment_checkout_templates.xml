@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="checkout_form">
+        <script src="https://cdn.checkout.com/sandbox/js/checkout.js"></script>
+        <input type='hidden' name='tx_url' t-att-value="tx_url"/>
+        <input type='hidden' name='publishable_key' t-att-value="publishable_key"/>
+        <input type='hidden' name='secret_key' t-att-value="secret_key"/>
+        <input type='hidden' name='email' t-att-value="email"/>
+        <input type='hidden' name='amount' t-att-value="amount"/>
+        <!--Order Information -->
+        <input type='hidden' name='customerName' t-att-value="customerName"/>
+        <input type='hidden' name='order_no' t-att-value='reference'/>
+        <input type='hidden' name='currency' t-att-value='currency'/>
+        <input type='hidden' name='currency_id' t-att-value='currency_id'/>
+        <input type='hidden' name='billingDetails' t-att-value='billingDetails'/>
+        <!-- this is only used to open checkout configure to get cardtoken -->
+        <button id="pay_checkout" width="100px" t-att-class="submit_class">
+            <span t-if="submit_txt"><t t-esc="submit_txt"/>
+            <span class="fa fa-long-arrow-right"/></span>
+        </button>
+       <script type="text/javascript" src="/payment_checkout/static/src/js/checkout.js" />
+	</template>
+</odoo>
