@@ -26,5 +26,5 @@ class TestAddress(TransactionCase):
                 'zipcode': '12212',
             })
         self.assertEqual(
-            address,  None,
+            address, None,
             'Verification Failed: Please check Street and zip code!')
