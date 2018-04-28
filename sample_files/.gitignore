@@ -1,0 +1,15 @@
+
+
+# Eclipse
+.settings
+
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+
+
+# OCA rules
+!static/lib/
