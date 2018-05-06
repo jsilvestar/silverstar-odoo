@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_website_config_settings_phone_verify" model="ir.ui.view">
+		<field name="name">website.config.settings.form.inherit</field>
+		<field name="model">website.config.settings</field>
+		<field name="inherit_id" ref="website.view_website_config_settings" />
+		<field name="arch" type="xml">
+			<group name="social" position="before">
+				<group name="phone_verify" string="Phone Verify">
+					<label for="phone_access_token" />
+					<div name="phone_access_token">
+						<div class="oe_inline">
+							<field name="phone_access_token"
+							    placeholder="4554d9b357d755b8b0b23b4"/>
+						</div>
+					</div>
+				</group>
+			</group>
+		</field>
+	</record>
+</odoo>

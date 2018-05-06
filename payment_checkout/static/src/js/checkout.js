@@ -81,8 +81,8 @@ odoo.define('payment_checkout.checkout', function(require) {
 	}
 	$('#pay_checkout').on('click', function(e) {
 		var payment_form = $('.o_payment_form');
-		var acquirer_id = $(e.currentTarget).closest('div.oe_sale_acquirer_button,div.oe_quote_acquirer_button,div.o_website_payment_new_payment');
-		acquirer_id = acquirer_id.data('id') || acquirer_id.data('acquirer_id');
+		var acquirer = $(e.currentTarget).parents('div.oe_sale_acquirer_button').first();
+        var acquirer_id = acquirer.data('id');
 		if (! acquirer_id) {
             return false;
         }
