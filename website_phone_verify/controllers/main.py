@@ -25,14 +25,13 @@ class WebsiteSaleAddress(WebsiteSale):
             }
             res = requests.get(numverify_url, params=data)
             response = res.json()
-            if 'valid' in response and response['valid'] == False:
+            if response.get('valid') == False:
                 error["phone"] = 'error'
                 error_message.append(_('Please check your phone number or country code'))
-            elif 'success' in response and response['success'] == False:
+            elif response.get('success') == False:
                 error["phone"] = 'error'
                 error_message.append(_('please %s') % (response['error']['info'])) 
             return (error, error_message)
         else:
             error["phone"] = 'error'
         return (error, error_message)
-            
