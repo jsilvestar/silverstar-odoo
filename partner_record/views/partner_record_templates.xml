@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="partners_record_action" model="ir.actions.client">
+        <field name="name">Partner Record</field>
+        <field name="tag">partner_record</field>
+    </record>
+
+    <menuitem 
+        name="Partner"
+        id="menu_partners_record"
+        action="partners_record_action"
+        sequence="1"/>
+</odoo>
