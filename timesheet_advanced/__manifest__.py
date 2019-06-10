@@ -10,7 +10,7 @@ This module implements a Daily timesheet system.
 ================================================
 Employees can enter their timesheets in a single entry with ease.
 
-Can track total hours of employees.
+Can track total hours of employees and calculate amount of hours.
     """,
     'website': 'https://www.itis.de',
     'depends' : ['hr_timesheet'],
