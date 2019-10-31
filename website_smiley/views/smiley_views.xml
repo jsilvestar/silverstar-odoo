@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    	<record model="ir.actions.act_window" id="smiley_rating_action">
+            <field name="name">Survey Rating</field>
+            <field name="res_model">rating.rating</field>
+            <field name="view_mode">kanban,graph,pivot</field>
+            <!-- <field name="domain">[('rating_smiley','=',True)]</field>     -->
+            <field name="help" type="html">
+                <p>
+                    There is no rating for this object at the moment.
+                </p>
+            </field>
+        </record>
+
+    	<menuitem
+            id="smiley_rating_survey"
+            name="Survey"
+            sequence="15"/>
+            
+    	<menuitem
+            id="smiley_rating_response"
+            name="Rating"
+            parent="smiley_rating_survey"
+            action="smiley_rating_action"
+            sequence="15"/>
+   	</data>
+</odoo>

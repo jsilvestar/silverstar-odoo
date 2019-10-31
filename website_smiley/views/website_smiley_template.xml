@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="assets_editor" inherit_id="website.assets_frontend" name="Event Sale">
+  <xpath expr="." position="inside">
+       <link rel="stylesheet" type="text/less" href="/website_smiley/static/src/less/website_smiley.less"/>
+       <script type="text/javascript" src="/website_smiley/static/src/js/website_smiley.js"></script>
+  </xpath>
+</template>
+
+<template id="homepage_rating" inherit_id="website.homepage" name="Homepage Rating">
+    <xpath expr="//t[@t-set='pageName']" position='replace'>
+        <div id="wrap" class="oe_structure oe_empty"/>
+        <div class="container o_livechat_smiley">
+            <div class="o_livechat_rating text-center col-md-4 col-md-offset-4">
+                <img src="/website_smiley/static/src/img/rating_10.png" alt="Good" data-value="10"/>
+                <img src="/website_smiley/static/src/img/rating_5.png" alt="OK" data-value="5"/>
+                <img src="/website_smiley/static/src/img/rating_1.png" alt="Bad" data-value="1" />
+               <!--  <div class="o_livechat_no_feedback text-muted">
+                    <em> I don't want to rate this conversation</em>
+                </div> -->
+            </div>
+            <div class="alert alert-success hidden">
+                <strong>Survey!</strong> Survey sucessfully sent.
+            </div>
+        </div>
+      </xpath>
+</template>
+
+<!-- <template id="footer_default_smiley" inherit_id="website.footer_default" >
+    <xpath expr="//div[@id='footer']" position="replace">
+<div id="footer" class="container hidden-print">
+</div>
+        </xpath>
+    </template> -->
+
+</odoo>
