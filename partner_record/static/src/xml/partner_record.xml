@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+	<t t-name="PartnerTemplate">
+	<div class="container o_partner_view">
+	<section class="top-partner">
+	<span class="button new-partner">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-plus"></i>
+    </span>
+	</section>
+	<section class="partner-section">
+	    <div class="row">
+	        <div class="col-sm-12 col-md-12">
+		        <table class="table s_table scrollable-y" >
+					<thead class="p_header">
+						<tr class="p_table_head">
+							<th>Image</th>
+							<th>Name</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr t-foreach="partners" t-as="partner" t-att-data-id="partner.id" class="p_table_data" >
+							<td class="o_action_partner" t-att-data-partner_id="partner.id">
+				                  <img  
+						              t-att-src="partner.image and ('data:image/png;base64,' + partner.image) or '/web/static/src/img/placeholder.png'"
+						              class="img-circle p_image" />
+			                  	</td>
+			                  	<td>
+			                     <span
+			                     	type="text"
+			                     	class="oe_form_field"
+			                     	t-att-value="partner.name"
+			                     	t-att-data-partner_id="partner.id"><t t-esc="partner.name"></t></span>
+				              </td>
+		                  <td>
+							<a t-att-data-edit-id="partner.id" 
+								class='o_edit_button btn btn-link fa fa-edit pull-left edit_address no-decoration'
+								id="edit_address" title="Edit this address"></a>
+							<a
+								t-att-data-save-id="partner.id"
+								class='o_save_button btn btn-link fa fa-floppy-o no-decoration hidden' id="save"
+								title="Save"></a>
+						  </td>
+						</tr>
+					</tbody>
+				</table>
+	        </div>
+	    </div>
+	    </section>
+	</div>
+	</t>
+
+</templates>

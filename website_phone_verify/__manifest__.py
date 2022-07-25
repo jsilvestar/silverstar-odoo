@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Website Smart Streets',
+    'name': 'Website phone Verify',
     'version': '1.0',
-    'summary': 'Website smart streets',
-    'sequence': 30,
+    'summary': 'Website Phone verify',
+    'sequence': 31,
     'description': """
-            Website Smart Streets
+            Website Phone Verify
     """,
     'category': 'Website',
     'depends': ['website', 'website_sale'],

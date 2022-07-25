@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-try:
-    from smartystreets import Client
-except ImportError:
-    raise ImportError('pip install smartystreets.py')
-
+import requests
 
 from odoo import http, tools, _
 from odoo.http import request
@@ -22,18 +18,18 @@ class WebsiteSaleAddress(WebsiteSale):
             sudo().get_param('auth_id')
         auth_token = request.env['ir.config_parameter'].\
             sudo().get_param('auth_token')
-        if auth_id and auth_token:
-            client = Client(auth_id, auth_token)
-            address = client.street_address({
-                'input_id': data.get('partner_id'),
-                'street': data.get('street'),
-                'zipcode': data.get('zip'),
-            })
-            if address is None:
-                error["street"] = 'error'
-                error["zip"] = 'error'
-                error_message.append(_('Please check Street and zip code!'))
-        else:
-            error["name"] = 'error'
-            error_message.append(_('Please Configure API!'))
+        smart_street_url = 'https://us-zipcode.api.smartystreets.com/lookup'
+        headers = {
+            'Content-Type': 'Content-Type: application/json',
+        }
+        data = {
+            'auth_id': auth_id,
+            'auth_token': auth_token,
+            'input_id': data.get('partner_id'),
+            'street': data.get('street'),
+            'state': data.get('state') and data['state'].code or '',
+            'zipcode': data.get('zip'),
+            
+        }
+        res = requests.get(smart_street_url, headers=headers, params=data)
         return (error, error_message)
